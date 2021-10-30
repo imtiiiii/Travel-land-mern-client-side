@@ -3,27 +3,23 @@
 import './AddService.css';
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Placeholder } from 'react-bootstrap';
 import axios from 'axios';
 const AddService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    // function(onSubmit) to see the form data 
+    // function(onSubmit) to to send data to the database
     const onSubmit = data => {
         reset();
-
         const newService = {
             title: data.title,
             description: data.description,
             price: data.price,
             url: data.imgUrl
         };
+        // sending the data to database
         axios.post('http://localhost:5000/users', newService)
             .then(data => {
                 console.log(data);
             })
-
-
-
 
     }
     return (

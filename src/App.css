@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 .App {
   background-image: url('./img/bg1.jpg');
-  height: 200vh;
+  height: 400vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  font-family: 'Crimson Text', serif;
 }
 
