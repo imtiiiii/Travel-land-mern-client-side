@@ -3,7 +3,7 @@
 /* setting the banner as a background */
 .banner-container{
     background-image: url('../../../img/banner1.jpg');
-    height: 95vh;
+    height: 98vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
