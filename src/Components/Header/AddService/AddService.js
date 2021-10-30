@@ -4,6 +4,7 @@ import './AddService.css';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Placeholder } from 'react-bootstrap';
+import axios from 'axios';
 const AddService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     // function(onSubmit) to see the form data 
@@ -16,6 +17,12 @@ const AddService = () => {
             price: data.price,
             url: data.imgUrl
         };
+        axios.post('http://localhost:5000/users', newService)
+            .then(data => {
+                console.log(data);
+            })
+
+
 
 
     }
@@ -27,7 +34,7 @@ const AddService = () => {
                     <h1 className="text-danger">Add a service</h1>
                     {/* register your input into the hook by invoking the "register" function */}
                     {/* --------------title field ------------------ */}
-                    <input defaultValue="" {...register("Title", { required: true },)} placeholder="Title" className="form-control" />
+                    <input defaultValue="" {...register("title", { required: true },)} placeholder="Title" className="form-control" />
 
                     {/* include validation with required or other standard HTML validation rules */}
                     {/* ------------description field------------ */}
