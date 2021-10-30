@@ -9,7 +9,15 @@ const AddService = () => {
     // function(onSubmit) to see the form data 
     const onSubmit = data => {
         reset();
-        console.log(data);
+
+        const newService = {
+            title: data.title,
+            description: data.description,
+            price: data.price,
+            url: data.imgUrl
+        };
+
+
     }
     return (
         <div className="add-service-container d-flex align-items-center justify-content-center flex-column ">
