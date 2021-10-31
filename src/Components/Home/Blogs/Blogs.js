@@ -5,7 +5,7 @@ import { Card, CardGroup, Col } from 'react-bootstrap';
 import icon from '../../../img/writing1.png'
 const Blogs = (props) => {
     const data = props.data;
-    console.log(data);
+    // console.log(data);
     return (
         <>
             <Col className="gx-5 mb-5">

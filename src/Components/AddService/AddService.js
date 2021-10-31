@@ -18,7 +18,7 @@ const AddService = () => {
         // sending the data to database
         axios.post('http://localhost:5000/services', newService)
             .then(data => {
-                console.log(data);
+                // console.log(data);
             })
 
     }

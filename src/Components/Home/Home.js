@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Service from './Service/Service';
 import Blogs from './Blogs/Blogs';
+import TravelTip from './TravelTip/TravelTip';
 
 const Home = () => {
 
@@ -26,6 +27,19 @@ const Home = () => {
             .then(res => res.json())
             .then(data => setBlogs(data));
     }, [])
+    // __________________Blogs end _______________
+    // travel tips 
+    const [travelTips, setTravelTips] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/tips")
+            .then(res => res.json())
+            .then(data => setTravelTips(data));
+
+    }, [])
+    // cnt for the layout i needeed
+    let cnt = 2;
+    // ------------travel tips end
+
     return (
         <div className="my-5">
             <h1 className="text-uppercase text-underline text-center text-danger"><u>Our services</u></h1>
@@ -48,8 +62,15 @@ const Home = () => {
                     }
 
                 </Row>
-
-
+            </Container>
+            {/* container for travel tips */}
+            <Container >
+                <h1 className="text-center text-uppercase text-danger"><u>Essential Traveling Tips</u></h1>
+                <Row className="my-5 g-5 shadow-sm py-5">
+                    {
+                        travelTips.map(tip => <TravelTip key={tip._id} data={tip} cnt={cnt++} ></TravelTip>)
+                    }
+                </Row>
             </Container>
         </div>
     );
