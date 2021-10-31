@@ -13,6 +13,7 @@ import AllBookings from './Components/AllBookings/AllBookings';
 import Book from './Components/Home/Service/Book/Book';
 import MyBookings from './Components/MyBookings/MyBookings';
 import useAuth from './Hooks/useAuth';
+import Footer from './Components/Footer/Footer';
 function App() {
 
   return (
@@ -42,15 +43,14 @@ function App() {
             <PrivateRoute path="/addservice">
               <AddService></AddService>
             </PrivateRoute>
-            <Route path="/allbookings">
+            <PrivateRoute path="/allbookings">
               <AllBookings></AllBookings>
-            </Route>
-            <Route path={`/mybookings`} >
+            </PrivateRoute>
+            <PrivateRoute path={`/mybookings`} >
               <MyBookings></MyBookings>
-            </Route>
-
+            </PrivateRoute>
           </Switch>
-
+          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div >
