@@ -1,4 +1,5 @@
 // user will confirm his booking from this page
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
@@ -23,7 +24,8 @@ const Book = () => {
             product_id: id,
             status: "pending"
         }
-
+        axios.post('http://localhost:5000/allbookings', newData)
+            .then(res => console.log(res))
         reset();
         console.log(newData);
     }
