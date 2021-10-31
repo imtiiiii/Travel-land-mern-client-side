@@ -17,15 +17,19 @@ const Book = () => {
         fetch(`http://localhost:5000/services/${id}`)
             .then(res => res.json())
             .then(data => setBooking(data))
-    }, [user])
+    }, [])
     const onSubmit = data => {
         const newData = {
             email: data.email,
             product_id: id,
             status: "pending"
         }
-        axios.post('http://localhost:5000/allbookings', newData)
-            .then(res => console.log(res))
+        axios.post('http://localhost:5000/allbooks', newData)
+            .then(res => {
+                res.data.insertedId ? alert("Thank you for your order")
+                    :
+                    alert("Something went wrong, Please try again");
+            })
         reset();
         console.log(newData);
     }

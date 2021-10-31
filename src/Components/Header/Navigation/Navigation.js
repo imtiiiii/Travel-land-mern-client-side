@@ -22,7 +22,7 @@ const Navigation = () => {
                             <Nav.Link as={NavLink} to="/addservice">Add service</Nav.Link>
                             <Nav.Link as={NavLink} to="/allbookings">All bookings</Nav.Link>
 
-                            <Button variant="outline-danger" onClick={logout}>{user.email} Logout</Button>
+                            {/* <Button variant="outline-danger" onClick={logout}>{user.email} Logout</Button> */}
                         </>
                     }
                 </Nav>
