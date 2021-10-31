@@ -9,7 +9,7 @@ const Home = () => {
     const [services, setServices] = useState([]);
     //loading the data from db with useEffect
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             //now set the data to the state
             .then(data => setServices(data));

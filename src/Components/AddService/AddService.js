@@ -16,7 +16,7 @@ const AddService = () => {
             url: data.imgUrl
         };
         // sending the data to database
-        axios.post('http://localhost:5000/users', newService)
+        axios.post('http://localhost:5000/services', newService)
             .then(data => {
                 console.log(data);
             })
