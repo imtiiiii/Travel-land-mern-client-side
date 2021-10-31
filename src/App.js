@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Components/Login/Login';
 import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import AllBookings from './Components/AllBookings/AllBookings';
+import Book from './Components/Home/Service/Book/Book';
 function App() {
   return (
     <div className="App">
@@ -20,6 +22,9 @@ function App() {
             {/* default home page  */}
             <Route path="/" exact>
               <Home></Home>
+            </Route>
+            <Route path="/home/:id" exact>
+              <Book></Book>
             </Route>
             {/* home page  */}
             <Route path="/home">
@@ -34,8 +39,9 @@ function App() {
               <AddService></AddService>
             </PrivateRoute>
             <Route path="/allbookings">
-
+              <AllBookings></AllBookings>
             </Route>
+
           </Switch>
 
         </Router>
