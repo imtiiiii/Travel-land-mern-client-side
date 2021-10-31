@@ -5,7 +5,7 @@ import { Col } from 'react-bootstrap';
 import calendar from '../../../img/calendar.png'
 
 const TravelTip = (props) => {
-    console.log(props);
+
     const data = props.data;
     // cnt for the layout i needeed 
     const cnt = props.cnt;

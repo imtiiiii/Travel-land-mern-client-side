@@ -16,10 +16,16 @@ const Book = () => {
         fetch(`http://localhost:5000/services/${id}`)
             .then(res => res.json())
             .then(data => setBooking(data))
-    }, [])
+    }, [user])
     const onSubmit = data => {
-        console.log(data);
+        const newData = {
+            email: data.email,
+            product_id: id,
+            status: "pending"
+        }
+
         reset();
+        console.log(newData);
     }
     return (
         <div>
@@ -28,27 +34,31 @@ const Book = () => {
                     <Col lg={5} className="">
 
                         <div className="book-now-form px-3 shadow">
-                            <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column  ">
-                                <h1 className="text-danger text-center">Book this</h1>
-                                {/* register your input into the hook by invoking the "register" function */}
-                                {/* --------------email field ------------------ */}
-                                <input {...register("email")} placeholder="Email" className="form-control" value={user?.email || ' '} />
+                            {
+                                user &&
+                                <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column  ">
+                                    <h1 className="text-danger text-center">Book this</h1>
+                                    {/* register your input into the hook by invoking the "register" function */}
+                                    {/* --------------email field ------------------ */}
+                                    <input defaultValue={user.email} {...register("email")} placeholder="Email" className="form-control" />
 
-                                {/* include validation with required or other standard HTML validation rules */}
+                                    {/* include validation with required or other standard HTML validation rules */}
 
-                                {/* ----------Contact field ------- */}
-                                <input  {...register("phone", { required: true },)} placeholder="Phone Number" className="form-control" />
-                                {/* ------------address---------- */}
-                                <input  {...register("address", { required: true },)} placeholder="delivery address" className="form-control" />
+                                    {/* ----------Contact field ------- */}
+                                    <input  {...register("phone", { required: true },)} placeholder="Phone Number" className="form-control" />
+                                    {/* ------------address---------- */}
+                                    <input  {...register("address", { required: true },)} placeholder="delivery address" className="form-control" />
 
-                                {/* ------product id */}
-                                <input  {...register("id", { required: true },)} className="form-control" value={id || ' '} />
-                                {/* status */}
-                                <input  {...register("status", { required: true },)} className="form-control" value={"pending"} />
-                                {/* errors will return when field validation fails  */}
-                                {errors.exampleRequired && <span>This field is required</span>}
-                                <input type="submit" className="btn btn-outline-success" value="Order" />
-                            </form>
+                                    {/* ------product id */}
+                                    <input  {...register("id", { required: true },)} className="form-control" value={id || ' '} />
+                                    {/* status */}
+                                    <input  {...register("status", { required: true },)} className="form-control" value={"pending"} />
+                                    {/* errors will return when field validation fails  */}
+                                    {errors.exampleRequired && <span>This field is required</span>}
+                                    <input type="submit" className="btn btn-outline-success" value="Order" />
+                                </form>
+                            }
+
                         </div>
 
                     </Col>
