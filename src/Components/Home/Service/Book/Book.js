@@ -24,7 +24,7 @@ const Book = () => {
     return (
         <div>
             <Container>
-                <Row className="border border-danger">
+                <Row className="">
                     <Col lg={5}>
                         <div className="add-service-container d-flex align-items-center justify-content-center flex-column ">
 
