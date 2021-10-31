@@ -1,0 +1,17 @@
+.blogs-container{
+    /* background-color: #f2f3ee; */
+    background-color: #f6ffd3dc;
+    transition: ease-in 0.8s;
+    /* overflow: hidden; */
+}
+.blogs-container:hover{
+    transform: scale(1.2);
+   
+}
+.author-container{
+    height: 70px;
+    color:gray
+}
+.author-icon{
+    width: 25px;
+}
