@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import firebaseinit from '../Firebase/firebase.init'
+import { useEffect, useState } from 'react';
+import firebaseInit from '../Firebase/firebase.init'
 import { useHistory } from 'react-router';
 import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
-firebaseinit();
+import React from 'react';
+firebaseInit();
 
 
 
 const useFirebase = () => {
-    // let history = useHistory();
+    //let history = useHistory();
     // we will store the user in a state
     const [user, setUser] = useState(null);
     //keeping a status to show the user if registration was succesfull or not
@@ -30,7 +31,7 @@ const useFirebase = () => {
 
     //         });
     // }
-    // this fucntion for= login with email and password
+    // // this fucntion for= login with email and password
     // const loginWithEmailPass = (email, password) => {
     //     signInWithEmailAndPassword(auth, email, password)
     //         .then((result) => {
@@ -67,6 +68,7 @@ const useFirebase = () => {
 
                 setUser(user);
 
+
             } else {
                 setUser(null);
             }
@@ -77,7 +79,7 @@ const useFirebase = () => {
         signOut(auth).then(() => {
 
             setUser(null);
-
+            // setRegStutus("Login Successfull");
 
         }).catch((error) => {
 
@@ -87,7 +89,11 @@ const useFirebase = () => {
     }
     return {
         user,
-        googleLogin
+
+        googleLogin,
+
+        handleLogout
+
     }
 
 }
