@@ -9,9 +9,11 @@ const AllBookings = () => {
     const [allBookings, setAllBookings] = useState([]);
     // use effect to load the data from db
     useEffect(() => {
-        fetch('http://localhost:5000/allbooks')
+        fetch('http://localhost:5000/allbooks?email=false')
             .then(res => res.json())
-            .then(data => setAllBookings(data));
+            .then(data => {
+                setAllBookings(data)
+            });
     }, [])
     // console.log(allBookings);
     return (

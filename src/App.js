@@ -11,10 +11,14 @@ import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import AllBookings from './Components/AllBookings/AllBookings';
 import Book from './Components/Home/Service/Book/Book';
+import MyBookings from './Components/MyBookings/MyBookings';
+import useAuth from './Hooks/useAuth';
 function App() {
+
   return (
     <div className="App">
       <AuthProvider>
+
         <Router>
           {/* header contains->banner,navbar */}
           <Header></Header>
@@ -41,12 +45,15 @@ function App() {
             <Route path="/allbookings">
               <AllBookings></AllBookings>
             </Route>
+            <Route path={`/mybookings`} >
+              <MyBookings></MyBookings>
+            </Route>
 
           </Switch>
 
         </Router>
       </AuthProvider>
-    </div>
+    </div >
   );
 }
 
