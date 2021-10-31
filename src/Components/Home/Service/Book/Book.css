@@ -1,0 +1,9 @@
+.book-now-form form input{
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    
+}
+.book-now-form{
+    background-color: #cce8ca;
+    height: 650px;
+}

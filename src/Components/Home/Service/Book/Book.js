@@ -4,7 +4,7 @@ import { Card, CardGroup, Col, Container, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import useAuth from '../../../../Hooks/useAuth';
-
+import './Book.css'
 const Book = () => {
     const { user } = useAuth();
     let { id } = useParams();
@@ -24,38 +24,37 @@ const Book = () => {
     return (
         <div>
             <Container>
-                <Row className="">
-                    <Col lg={5}>
-                        <div className="add-service-container d-flex align-items-center justify-content-center flex-column ">
+                <Row className="my-5">
+                    <Col lg={5} className="">
 
-                            <div className="add-service-form-container   d-flex align-items-center justify-content-center  w-100">
-                                <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column p-5 shadow">
-                                    <h1 className="text-danger">Book this</h1>
-                                    {/* register your input into the hook by invoking the "register" function */}
-                                    {/* --------------email field ------------------ */}
-                                    <input {...register("email")} placeholder="Email" className="form-control" value={user?.email || ' '} />
+                        <div className="book-now-form px-3 shadow">
+                            <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column  ">
+                                <h1 className="text-danger text-center">Book this</h1>
+                                {/* register your input into the hook by invoking the "register" function */}
+                                {/* --------------email field ------------------ */}
+                                <input {...register("email")} placeholder="Email" className="form-control" value={user?.email || ' '} />
 
-                                    {/* include validation with required or other standard HTML validation rules */}
+                                {/* include validation with required or other standard HTML validation rules */}
 
-                                    {/* ----------Contact field ------- */}
-                                    <input  {...register("phone", { required: true },)} placeholder="Phone Number" className="form-control" />
-                                    {/* ------------address---------- */}
-                                    <input  {...register("address", { required: true },)} placeholder="delivery address" className="form-control" />
+                                {/* ----------Contact field ------- */}
+                                <input  {...register("phone", { required: true },)} placeholder="Phone Number" className="form-control" />
+                                {/* ------------address---------- */}
+                                <input  {...register("address", { required: true },)} placeholder="delivery address" className="form-control" />
 
-                                    {/* ------product id */}
-                                    <input  {...register("id", { required: true },)} className="form-control" value={id || ' '} />
-                                    {/* status */}
-                                    <input  {...register("status", { required: true },)} className="form-control" value={"pending"} />
-                                    {/* errors will return when field validation fails  */}
-                                    {errors.exampleRequired && <span>This field is required</span>}
-                                    <input type="submit" className="btn btn-outline-success" value="Order" />
-                                </form>
-                            </div>
+                                {/* ------product id */}
+                                <input  {...register("id", { required: true },)} className="form-control" value={id || ' '} />
+                                {/* status */}
+                                <input  {...register("status", { required: true },)} className="form-control" value={"pending"} />
+                                {/* errors will return when field validation fails  */}
+                                {errors.exampleRequired && <span>This field is required</span>}
+                                <input type="submit" className="btn btn-outline-success" value="Order" />
+                            </form>
                         </div>
+
                     </Col>
-                    <Col lg={4} className=" d-flex align-items-center justify-content-center flex-column">
+                    <Col lg={5} className=" d-flex align-items-center justify-content-center flex-column">
                         <CardGroup>
-                            <Card className="card-container my-3 rounded shadow">
+                            <Card className="card-container  rounded shadow">
                                 <div className="card-img-container ">
                                     <Card.Img variant="top" src={booking.url} className="w-100 " />
                                 </div>
