@@ -20,7 +20,7 @@ const AllBookings = () => {
                 All orders by our respectable customers</h1>
             <Row lg={3} xs={1}>
                 {
-                    allBookings.map(booking => <Allbooking id={booking.product_id} key={booking._id}></Allbooking>)
+                    allBookings.map(booking => <Allbooking data={booking} key={booking._id}></Allbooking>)
                 }
             </Row>
         </div>

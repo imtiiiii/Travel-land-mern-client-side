@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { Card, CardGroup, Col } from 'react-bootstrap';
 
 const Allbooking = (props) => {
+
     // now we got all the id's of booking that all users made
     // now we can search in our db with this id to show booking details
     const [booked, setBooked] = useState({})
-    const searchId = props.id;
+    const searchId = props.data.product_id;
     console.log(searchId);
     useEffect(() => {
         fetch(`http://localhost:5000/services/${searchId}`)
@@ -26,6 +27,9 @@ const Allbooking = (props) => {
                         </div>
                         <div className="">
                             <h4><b> ${booked.price}</b></h4>
+                        </div>
+                        <div>
+                            <h5>Status: {props.data.status}</h5>
                         </div>
                     </div>
                 </Card>
