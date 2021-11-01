@@ -14,6 +14,7 @@ import Book from './Components/Home/Service/Book/Book';
 import MyBookings from './Components/MyBookings/MyBookings';
 import useAuth from './Hooks/useAuth';
 import Footer from './Components/Footer/Footer';
+import NotFound from './Components/NotFound/NotFound';
 function App() {
 
   return (
@@ -49,6 +50,9 @@ function App() {
             <PrivateRoute path="/mybookings">
               <MyBookings></MyBookings>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
           <Footer></Footer>
         </Router>

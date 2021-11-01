@@ -12,7 +12,7 @@ const Navigation = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="" variant="light" className="navivgation-container">
             <Container className="">
-                <Navbar.Brand href="#home" className="text-uppercase fw-bold">Travel Land</Navbar.Brand>
+                <Navbar.Brand as={NavLink} to="/home" className="text-uppercase fw-bold">Travel Land</Navbar.Brand>
                 <Nav className="ms-auto">
                     <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
 
