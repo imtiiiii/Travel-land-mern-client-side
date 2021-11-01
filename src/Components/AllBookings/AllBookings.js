@@ -9,7 +9,7 @@ const AllBookings = () => {
     const [allBookings, setAllBookings] = useState([]);
     // use effect to load the data from db
     useEffect(() => {
-        fetch('http://localhost:5000/allbooks?email=false')
+        fetch('https://nameless-island-47998.herokuapp.com/allbooks?email=false')
             .then(res => res.json())
             .then(data => {
                 setAllBookings(data)

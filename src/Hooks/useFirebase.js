@@ -13,7 +13,7 @@ const useFirebase = () => {
     const [user, setUser] = useState(null);
     //keeping a status to show the user if registration was succesfull or not
     // const [regStutus, setRegStutus] = useState('');
-    // const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
 
     // create account with email and password
@@ -55,7 +55,11 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
 
+                setIsLoading(true);
+
                 setUser(result.user);
+
+                setIsLoading(false);
 
             }).catch((error) => {
 
@@ -66,7 +70,11 @@ const useFirebase = () => {
             if (user) {
 
 
+                setIsLoading(true);
+
                 setUser(user);
+
+                setIsLoading(false);
 
 
             } else {
@@ -92,7 +100,8 @@ const useFirebase = () => {
 
         googleLogin,
 
-        handleLogout
+        handleLogout,
+        isLoading
 
     }
 

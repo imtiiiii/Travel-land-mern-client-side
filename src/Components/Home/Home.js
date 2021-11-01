@@ -13,7 +13,7 @@ const Home = () => {
     const [services, setServices] = useState([]);
     //loading the data from db with useEffect
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://nameless-island-47998.herokuapp.com/services')
             .then(res => res.json())
             //now set the data to the state
             .then(data => setServices(data));
@@ -23,7 +23,7 @@ const Home = () => {
     // ___________________Blogs____________________
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://nameless-island-47998.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setBlogs(data));
     }, [])
@@ -31,7 +31,7 @@ const Home = () => {
     // travel tips 
     const [travelTips, setTravelTips] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/tips")
+        fetch("https://nameless-island-47998.herokuapp.com/tips")
             .then(res => res.json())
             .then(data => setTravelTips(data));
 
@@ -41,8 +41,8 @@ const Home = () => {
     // ------------travel tips end
 
     return (
-        <div className="my-5">
-            <h1 className="text-uppercase text-underline text-center text-danger"><u>Our services</u></h1>
+        <div className=" service-container">
+            <h1 className="text-uppercase text-underline text-center text-dark"><u>Our services</u></h1>
             {/* container for services */}
             <Container>
                 <Row lg={3} xs={1}>
@@ -54,7 +54,7 @@ const Home = () => {
             </Container>
             {/* container for blogs */}
             <Container >
-                <h1 className="text-center text-uppercase text-danger"><u>Fetured Blogs</u></h1>
+                <h1 className="text-center text-uppercase text-dark"><u>Fetured Blogs</u></h1>
 
                 <Row lg={3} xs={1}>
                     {
@@ -65,8 +65,8 @@ const Home = () => {
             </Container>
             {/* container for travel tips */}
             <Container >
-                <h1 className="text-center text-uppercase text-danger"><u>Essential Traveling Tips</u></h1>
-                <Row className="my-5 g-5 shadow-sm py-5">
+                <h1 className="text-center text-uppercase text-dark"><u>Essential Traveling Tips</u></h1>
+                <Row className=" g-5 shadow py-5">
                     {
                         travelTips.map(tip => <TravelTip key={tip._id} data={tip} cnt={cnt++} ></TravelTip>)
                     }

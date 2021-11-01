@@ -13,7 +13,7 @@ const MyBookings = () => {
     const [emailFound, setEmailFound] = useState(false);
     const [userBookings, setUserBookings] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allbooks?email=${user?.email}`)
+        fetch(`https://nameless-island-47998.herokuapp.com/allbooks?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
 

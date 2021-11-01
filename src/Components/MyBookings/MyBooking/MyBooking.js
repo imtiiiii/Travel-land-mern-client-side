@@ -9,7 +9,7 @@ const MyBooking = (props) => {
     const searchId = props.data.product_id;
     // console.log(searchId);
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${searchId}`)
+        fetch(`https://nameless-island-47998.herokuapp.com/services/${searchId}`)
             .then(res => res.json())
             .then(data => {
                 setBooked(data)

@@ -10,21 +10,22 @@ const Navigation = () => {
         handleLogout();
     }
     return (
-        <Navbar bg="" variant="light" className="navivgation-container">
-            <Container className="h4">
+        <Navbar collapseOnSelect expand="lg" bg="" variant="light" className="navivgation-container">
+            <Container className="">
                 <Navbar.Brand href="#home" className="text-uppercase fw-bold">Travel Land</Navbar.Brand>
                 <Nav className="ms-auto">
                     <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
-                    <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
-                    {
-                        user &&
-                        <>
-                            <Nav.Link as={NavLink} to="/addservice">Add service</Nav.Link>
-                            <Nav.Link as={NavLink} to="/allbookings">All bookings</Nav.Link>
-                            <Nav.Link as={NavLink} to="/mybookings">My bookings</Nav.Link>
 
-                            <Button variant="outline-danger" onClick={logout}>{user.email} Logout</Button>
-                        </>
+                    {
+                        user ?
+                            <>
+                                <Nav.Link as={NavLink} to="/addservice">Add service</Nav.Link>
+                                <Nav.Link as={NavLink} to="/allbookings">All bookings</Nav.Link>
+                                <Nav.Link as={NavLink} to="/mybookings">My bookings</Nav.Link>
+
+                                <Button variant="outline-danger" onClick={logout}>{user.email} Logout</Button>
+                            </> :
+                            <Nav.Link as={NavLink} to="/login">Login</Nav.Link>
                     }
                 </Nav>
             </Container>

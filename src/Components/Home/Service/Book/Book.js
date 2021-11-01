@@ -14,7 +14,7 @@ const Book = () => {
     const [booking, setBooking] = useState([]);
     // loading the data from db
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://nameless-island-47998.herokuapp.com/services/${id}`)
             .then(res => res.json())
             .then(data => setBooking(data))
     }, [])
@@ -24,7 +24,7 @@ const Book = () => {
             product_id: id,
             status: "pending"
         }
-        axios.post('http://localhost:5000/allbooks', newData)
+        axios.post('https://nameless-island-47998.herokuapp.com/allbooks', newData)
             .then(res => {
                 res.data.insertedId ? alert("Thank you for your order")
                     :

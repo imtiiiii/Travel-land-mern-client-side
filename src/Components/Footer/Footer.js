@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="bg-dark">
             <Row lg={3} xs={1}>
                 <Col>
-                    <img src={footerImg} alt="footer"></img>
+                    <img src={footerImg} alt="footer" className="w-100"></img>
                 </Col>
                 <Col className="text-white d-flex flex-column justify-content-center ">
                     <h1>About us</h1>

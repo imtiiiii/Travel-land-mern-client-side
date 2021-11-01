@@ -46,7 +46,7 @@ function App() {
             <PrivateRoute path="/allbookings">
               <AllBookings></AllBookings>
             </PrivateRoute>
-            <PrivateRoute path={`/mybookings`} >
+            <PrivateRoute path="/mybookings">
               <MyBookings></MyBookings>
             </PrivateRoute>
           </Switch>
