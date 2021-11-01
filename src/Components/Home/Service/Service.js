@@ -3,15 +3,19 @@ import React from 'react';
 import { Card, CardGroup, Col, Button } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 import Book from './Book/Book';
 import './Service.css'
 
 const Service = (props) => {
     const data = props.data;
-
+    const { user } = useAuth();
     let history = useHistory();
     const handleBookNow = id => {
-        history.push(`/home/${id}`);
+        user ?
+            history.push(`/home/${id}`)
+            :
+            history.push("/login")
 
     }
     return (
