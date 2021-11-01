@@ -12,10 +12,13 @@ const AllBookings = () => {
         fetch('https://nameless-island-47998.herokuapp.com/allbooks?email=false')
             .then(res => res.json())
             .then(data => {
-                setAllBookings(data)
+                setAllBookings(data);
+                // console.log(data);
             });
     }, [])
     // console.log(allBookings);
+
+
     return (
         <div>
             <h1 className="text-center">Here is the list of <br></br>
