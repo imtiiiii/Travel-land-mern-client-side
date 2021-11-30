@@ -7,6 +7,6 @@
 * see blogs
 * admin can add more service/travel bookings
 * can see all users travel booking history
-* can see user's own bookings
+* can see user's own booking
 [Visit Travel Land](https://travel-land-imtiaz-full-stack-mern.netlify.app/).
 
